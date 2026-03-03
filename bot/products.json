@@ -1,0 +1,122 @@
+{
+  "categories": [
+    {
+      "name": "Tecnologia",
+      "emoji": "💻",
+      "products": [
+        {"name": "Apple AirPods Pro 2", "asin": "B0BDHWDR12", "price_range": "249-279€", "keywords": ["auriculares", "cancelacion ruido", "Apple"]},
+        {"name": "Samsung Galaxy S24 FE", "asin": "B0DG1JLR2K", "price_range": "499-649€", "keywords": ["movil", "Samsung", "Galaxy"]},
+        {"name": "Logitech MX Master 3S", "asin": "B0B9HNZ3VK", "price_range": "79-109€", "keywords": ["raton", "ergonomico", "oficina"]},
+        {"name": "Amazon Echo Dot 5", "asin": "B09B8V1LZ3", "price_range": "29-59€", "keywords": ["altavoz inteligente", "Alexa"]},
+        {"name": "Kindle Paperwhite 2024", "asin": "B0CFPJYX7P", "price_range": "149-169€", "keywords": ["ebook", "lector", "Kindle"]},
+        {"name": "JBL Flip 6", "asin": "B0BKJ6ZXYQ", "price_range": "99-129€", "keywords": ["altavoz bluetooth", "portatil"]},
+        {"name": "SanDisk Extreme 1TB SSD", "asin": "B08GTYFC37", "price_range": "89-109€", "keywords": ["disco duro externo", "SSD"]},
+        {"name": "Anker PowerCore 26800mAh", "asin": "B0BYP4Y36D", "price_range": "39-59€", "keywords": ["power bank", "bateria externa"]},
+        {"name": "Logitech C920 HD Pro", "asin": "B006JH8T3S", "price_range": "59-79€", "keywords": ["webcam", "videoconferencia"]},
+        {"name": "Samsung T7 Shield 2TB", "asin": "B0B1CY9XJ4", "price_range": "149-189€", "keywords": ["disco duro externo", "SSD", "resistente"]},
+        {"name": "Apple Watch SE 2024", "asin": "B0DGJ6GBWL", "price_range": "249-299€", "keywords": ["smartwatch", "Apple", "reloj"]},
+        {"name": "Sony WH-1000XM5", "asin": "B09XS7JWHH", "price_range": "299-379€", "keywords": ["auriculares", "cancelacion ruido", "Sony"]},
+        {"name": "Fire TV Stick 4K Max", "asin": "B0BTFKXRM7", "price_range": "44-69€", "keywords": ["streaming", "TV", "Amazon"]},
+        {"name": "iPad 10 generacion", "asin": "B0BJLXMVMV", "price_range": "349-399€", "keywords": ["tablet", "Apple", "iPad"]},
+        {"name": "Xiaomi Redmi Note 13 Pro", "asin": "B0CS2HT9FM", "price_range": "199-279€", "keywords": ["movil", "Xiaomi", "calidad precio"]}
+      ]
+    },
+    {
+      "name": "Hogar",
+      "emoji": "🏠",
+      "products": [
+        {"name": "Roborock S8 Pro Ultra", "asin": "B0BYC9RGSZ", "price_range": "899-1099€", "keywords": ["robot aspirador", "fregado"]},
+        {"name": "Dyson V15 Detect", "asin": "B0968MY3YG", "price_range": "549-699€", "keywords": ["aspirador", "sin cable", "Dyson"]},
+        {"name": "Cecotec Conga 11090 Spin", "asin": "B0C3RJBXWP", "price_range": "349-499€", "keywords": ["robot aspirador", "Cecotec"]},
+        {"name": "Cosori Air Fryer 5.5L", "asin": "B07GSJCBX3", "price_range": "89-119€", "keywords": ["freidora aire", "sin aceite"]},
+        {"name": "Philips Air Fryer XXL", "asin": "B09DKNTQJP", "price_range": "169-229€", "keywords": ["freidora aire", "Philips", "familiar"]},
+        {"name": "De'Longhi Magnifica S", "asin": "B07D2XWLYP", "price_range": "279-349€", "keywords": ["cafetera", "automatica", "espresso"]},
+        {"name": "iRobot Roomba i5+", "asin": "B0C4KS2N2V", "price_range": "349-449€", "keywords": ["robot aspirador", "iRobot", "autovaciado"]},
+        {"name": "Rowenta Turbo Silence", "asin": "B0849YMLPH", "price_range": "59-89€", "keywords": ["ventilador", "torre", "silencioso"]},
+        {"name": "Instant Pot Duo 7-in-1", "asin": "B07S85TPLG", "price_range": "79-99€", "keywords": ["olla programable", "multicooker"]},
+        {"name": "Philips Airfryer Essential", "asin": "B0B9Q7C1HZ", "price_range": "69-99€", "keywords": ["freidora aire", "compacta"]},
+        {"name": "Emma Original Colchon", "asin": "B07PZKJ93X", "price_range": "349-599€", "keywords": ["colchon", "memory foam", "calidad precio"]},
+        {"name": "Crock-Pot Digital 5.7L", "asin": "B00BKPQR7I", "price_range": "49-69€", "keywords": ["slow cooker", "olla lenta"]},
+        {"name": "Brita Marella XL", "asin": "B000YHEUMW", "price_range": "19-29€", "keywords": ["jarra filtro", "agua"]},
+        {"name": "Xiaomi Mi Air Purifier 4", "asin": "B0BHNS3KBZ", "price_range": "149-199€", "keywords": ["purificador aire", "Xiaomi"]},
+        {"name": "Ring Video Doorbell 4", "asin": "B0BFJNL42P", "price_range": "99-149€", "keywords": ["timbre inteligente", "camara", "seguridad"]}
+      ]
+    },
+    {
+      "name": "Gaming",
+      "emoji": "🎮",
+      "products": [
+        {"name": "PS5 DualSense Edge", "asin": "B0BSQFP2WN", "price_range": "199-239€", "keywords": ["mando", "PS5", "pro"]},
+        {"name": "Razer DeathAdder V3", "asin": "B0BGR5VHGF", "price_range": "69-89€", "keywords": ["raton gaming", "Razer"]},
+        {"name": "HyperX Cloud III", "asin": "B0C3WL51NQ", "price_range": "79-99€", "keywords": ["auriculares gaming", "HyperX"]},
+        {"name": "Secretlab Titan Evo 2026", "asin": "B0CYR2LKQT", "price_range": "399-529€", "keywords": ["silla gaming", "ergonomica"]},
+        {"name": "SteelSeries Apex Pro TKL", "asin": "B0BF64DN5Z", "price_range": "149-199€", "keywords": ["teclado mecanico", "gaming"]},
+        {"name": "ASUS ROG Swift PG279QM", "asin": "B09QP2FD1V", "price_range": "599-799€", "keywords": ["monitor gaming", "27 pulgadas", "240Hz"]},
+        {"name": "Xbox Elite Controller S2", "asin": "B07SFKTLZM", "price_range": "139-179€", "keywords": ["mando", "Xbox", "premium"]},
+        {"name": "Corsair K70 RGB PRO", "asin": "B09NCLR4M6", "price_range": "129-169€", "keywords": ["teclado mecanico", "Corsair"]},
+        {"name": "LG UltraGear 27GP850", "asin": "B097BVNP75", "price_range": "349-449€", "keywords": ["monitor gaming", "165Hz", "Nano IPS"]},
+        {"name": "Elgato Stream Deck MK.2", "asin": "B09738CV2Q", "price_range": "119-149€", "keywords": ["streaming", "botones", "OBS"]}
+      ]
+    },
+    {
+      "name": "Deporte",
+      "emoji": "⚡",
+      "products": [
+        {"name": "Garmin Forerunner 265", "asin": "B0BS1N7R6L", "price_range": "349-449€", "keywords": ["reloj GPS", "running", "Garmin"]},
+        {"name": "Nike Pegasus 41", "asin": "B0D3RZBYX5", "price_range": "99-129€", "keywords": ["zapatillas running", "Nike"]},
+        {"name": "Xiaomi Smart Band 9", "asin": "B0D9D7FVR1", "price_range": "29-39€", "keywords": ["pulsera actividad", "Xiaomi"]},
+        {"name": "Bowflex SelectTech 552", "asin": "B001ARYU58", "price_range": "299-399€", "keywords": ["mancuernas ajustables", "musculacion"]},
+        {"name": "Theragun Mini 2.0", "asin": "B0BKYCJM4N", "price_range": "149-199€", "keywords": ["pistola masaje", "recuperacion"]},
+        {"name": "NordicTrack T6.5S", "asin": "B074XLBS4M", "price_range": "599-799€", "keywords": ["cinta correr", "plegable"]},
+        {"name": "Garmin Edge 540", "asin": "B0C2RXL8MP", "price_range": "299-379€", "keywords": ["ciclocomputador", "GPS", "ciclismo"]},
+        {"name": "Whoop 4.0", "asin": "B0BSHQ48RP", "price_range": "239-299€", "keywords": ["wearable", "recuperacion", "HRV"]},
+        {"name": "Manduka PRO Yoga Mat", "asin": "B003FH0GOA", "price_range": "89-119€", "keywords": ["esterilla yoga", "profesional"]},
+        {"name": "Fitbit Charge 6", "asin": "B0CQMMJHNT", "price_range": "129-159€", "keywords": ["pulsera actividad", "Fitbit", "GPS"]}
+      ]
+    },
+    {
+      "name": "Belleza",
+      "emoji": "✨",
+      "products": [
+        {"name": "Dyson Airwrap Complete", "asin": "B0B48M18YY", "price_range": "449-549€", "keywords": ["rizador", "Dyson", "styling"]},
+        {"name": "Philips Lumea Advanced", "asin": "B084BPRNDG", "price_range": "279-399€", "keywords": ["depiladora laser", "IPL"]},
+        {"name": "GHD Platinum+ Styler", "asin": "B08LD68N4G", "price_range": "199-259€", "keywords": ["plancha pelo", "GHD"]},
+        {"name": "Foreo Luna 4", "asin": "B0BR2BJFBW", "price_range": "199-249€", "keywords": ["limpiador facial", "silicona"]},
+        {"name": "Oral-B iO Series 9", "asin": "B0BCYK2FNK", "price_range": "199-299€", "keywords": ["cepillo electrico", "Oral-B"]},
+        {"name": "Braun Series 9 Pro", "asin": "B09NRGX1FY", "price_range": "229-329€", "keywords": ["afeitadora", "electrica", "Braun"]},
+        {"name": "Dyson Supersonic", "asin": "B0BXM2QV6Y", "price_range": "329-449€", "keywords": ["secador pelo", "Dyson"]},
+        {"name": "La Roche-Posay Anthelios", "asin": "B0BXR5FZPT", "price_range": "14-22€", "keywords": ["protector solar", "facial", "SPF50"]},
+        {"name": "CeraVe Crema Hidratante", "asin": "B07BB4PY3N", "price_range": "12-18€", "keywords": ["crema facial", "hidratante"]},
+        {"name": "The Ordinary Niacinamide 10%", "asin": "B074GX7825", "price_range": "6-10€", "keywords": ["serum", "poros", "skincare"]}
+      ]
+    },
+    {
+      "name": "Bebe",
+      "emoji": "👶",
+      "products": [
+        {"name": "Bugaboo Fox 5", "asin": "B0C3H2F6FD", "price_range": "999-1299€", "keywords": ["carro bebe", "premium"]},
+        {"name": "Cybex Sirona S2", "asin": "B0BYSM7JRF", "price_range": "349-449€", "keywords": ["silla coche", "i-Size", "giratoria"]},
+        {"name": "Stokke Tripp Trapp", "asin": "B000NOZDH0", "price_range": "249-299€", "keywords": ["trona", "evolutiva"]},
+        {"name": "Philips Avent SCD503", "asin": "B0BS5ZS3LR", "price_range": "79-119€", "keywords": ["vigilabebes", "audio"]},
+        {"name": "Medela Swing Maxi Flex", "asin": "B0BLP6MF7X", "price_range": "199-269€", "keywords": ["sacaleches", "electrico", "doble"]},
+        {"name": "BabyBjorn Bouncer Bliss", "asin": "B00BQYVOKY", "price_range": "179-229€", "keywords": ["hamaca bebe", "ergonomica"]},
+        {"name": "Chicco Next2Me Magic", "asin": "B07QRK9RYJ", "price_range": "199-269€", "keywords": ["cuna colecho", "Chicco"]},
+        {"name": "Ergobaby Omni 360", "asin": "B076B1RNXQ", "price_range": "139-179€", "keywords": ["mochila portabebes", "ergonomica"]}
+      ]
+    },
+    {
+      "name": "Mascotas",
+      "emoji": "🐾",
+      "products": [
+        {"name": "Royal Canin Medium Adult", "asin": "B00CAIVL9Q", "price_range": "39-59€", "keywords": ["pienso perro", "Royal Canin"]},
+        {"name": "Catit Pixi Smart Fountain", "asin": "B0BT1HFTCD", "price_range": "39-59€", "keywords": ["fuente agua gato", "inteligente"]},
+        {"name": "PetSafe ScoopFree", "asin": "B074FGZB1Y", "price_range": "129-179€", "keywords": ["arenero automatico", "gato"]},
+        {"name": "Furbo Dog Camera 360", "asin": "B0C7DQWWWK", "price_range": "159-229€", "keywords": ["camara perro", "lanza premios"]},
+        {"name": "Tractive GPS Cat", "asin": "B0BQ3FMDPL", "price_range": "39-49€", "keywords": ["GPS gato", "rastreador"]},
+        {"name": "KONG Classic XL", "asin": "B0002AR0II", "price_range": "12-18€", "keywords": ["juguete perro", "resistente"]},
+        {"name": "Feandrea Arbol Gato XXL", "asin": "B07FLXHYCF", "price_range": "49-79€", "keywords": ["rascador gato", "arbol"]},
+        {"name": "Whiskas Multipack 48", "asin": "B073FTRDQF", "price_range": "19-29€", "keywords": ["comida gato", "sobres"]}
+      ]
+    }
+  ]
+}
