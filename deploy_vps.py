@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """Sube OfertasFlash al VPS y lanza bot 24/7 + webhook Stripe."""
+
+import sys
+import io
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
 
 import paramiko
 from pathlib import Path
@@ -37,9 +42,11 @@ def main():
             print(f"  Subiendo {f}...")
             sftp.put(str(local), f"{VPS_PATH}/{f}")
 
-    # Instalar dependencias
+    # Instalar dependencias (con --break-system-packages para Ubuntu 24.04)
     print("\nInstalando dependencias...")
-    stdin, stdout, stderr = ssh.exec_command(f"cd {VPS_PATH} && pip3 install -r requirements.txt 2>&1 | tail -3")
+    stdin, stdout, stderr = ssh.exec_command(
+        f"cd {VPS_PATH} && pip3 install --break-system-packages -r requirements.txt 2>&1 | tail -5"
+    )
     print(stdout.read().decode().strip())
 
     # Matar procesos anteriores
@@ -48,15 +55,15 @@ def main():
     ssh.exec_command("screen -X -S ofertas_webhook quit 2>/dev/null")
 
     import time
-    time.sleep(1)
+    time.sleep(2)
 
     # Lanzar bot principal (24/7, maneja comandos + scheduler de ofertas)
     ssh.exec_command(f"screen -dmS ofertas_bot bash -c 'cd {VPS_PATH} && python3 viral_bot.py >> /var/log/ofertas_bot.log 2>&1'")
-    print("  ✓ Bot principal lanzado (screen: ofertas_bot)")
+    print("  [OK] Bot principal lanzado (screen: ofertas_bot)")
 
     # Lanzar webhook Stripe (puerto 5050)
     ssh.exec_command(f"screen -dmS ofertas_webhook bash -c 'cd {VPS_PATH} && python3 stripe_webhook.py >> /var/log/ofertas_webhook.log 2>&1'")
-    print("  ✓ Webhook Stripe lanzado (screen: ofertas_webhook, puerto 5050)")
+    print("  [OK] Webhook Stripe lanzado (screen: ofertas_webhook, puerto 5050)")
 
     # Eliminar cron viejo (ya no se necesita, el bot tiene scheduler interno)
     stdin, stdout, stderr = ssh.exec_command("crontab -l 2>/dev/null")
@@ -64,7 +71,7 @@ def main():
     if "ofertas_bot.py" in current_cron:
         new_cron = "\n".join(l for l in current_cron.splitlines() if "ofertas_bot.py" not in l)
         ssh.exec_command(f"echo '{new_cron}' | crontab -")
-        print("  ✓ Cron viejo eliminado (scheduler interno del bot)")
+        print("  [OK] Cron viejo eliminado (scheduler interno del bot)")
 
     # Verificar
     print("\nVerificando...")
@@ -77,15 +84,15 @@ def main():
 
     print(f"""
 {'='*60}
-  ✅ OfertasFlash desplegado en VPS!
+  OfertasFlash desplegado en VPS!
 
-  🤖 Bot 24/7: screen -r ofertas_bot
-  💳 Webhook:  screen -r ofertas_webhook
-  📊 Logs:     tail -f /var/log/ofertas_bot.log
+  Bot 24/7: screen -r ofertas_bot
+  Webhook:  screen -r ofertas_webhook
+  Logs:     tail -f /var/log/ofertas_bot.log
 
   El bot publica automaticamente:
-  • Canal FREE: 4x/dia (8,12,16,20h) = 20 ofertas
-  • Canal VIP:  9x/dia (cada 2h) = 45 ofertas
+  - Canal FREE: 4x/dia (8,12,16,20h) = 20 ofertas
+  - Canal VIP:  9x/dia (cada 2h) = 45 ofertas
 
   Webhook Stripe: http://{VPS_HOST}:5050/webhook/stripe
 {'='*60}
