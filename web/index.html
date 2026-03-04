@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OfertasFlash — Las mejores ofertas de Amazon cada día</title>
+<meta name="description" content="Ofertas exclusivas de Amazon España seleccionadas por IA. Chollos, descuentos y flash deals todos los días. Gratis.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0a0f;--card:#13131a;--accent:#ff6b35;--accent2:#ffc107;--green:#22c55e;--text:#fff;--muted:#94a3b8}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+a{color:var(--accent);text-decoration:none}
+
+/* Hero */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(255,107,53,.15),transparent 70%);top:-200px;right:-200px;border-radius:50%}
+.hero::after{content:'';position:absolute;width:400px;height:400px;background:radial-gradient(circle,rgba(255,193,7,.1),transparent 70%);bottom:-100px;left:-100px;border-radius:50%}
+.hero>*{position:relative;z-index:1}
+
+.badge{display:inline-block;background:linear-gradient(135deg,var(--accent),#ff8f5e);padding:.4rem 1.2rem;border-radius:50px;font-size:.85rem;font-weight:600;margin-bottom:1.5rem;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.7}}
+
+h1{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:800;line-height:1.1;margin-bottom:1rem;background:linear-gradient(135deg,#fff 30%,var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.subtitle{font-size:1.3rem;color:var(--muted);max-width:600px;margin:0 auto 2rem}
+
+.cta-group{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-bottom:2rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:1rem 2rem;border-radius:12px;font-size:1.1rem;font-weight:700;border:none;cursor:pointer;transition:all .2s}
+.btn-primary{background:linear-gradient(135deg,var(--accent),#ff8f5e);color:#fff;box-shadow:0 4px 20px rgba(255,107,53,.4)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(255,107,53,.5)}
+.btn-vip{background:linear-gradient(135deg,var(--accent2),#ffdb4d);color:#000;box-shadow:0 4px 20px rgba(255,193,7,.3)}
+.btn-vip:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(255,193,7,.4)}
+
+.social-proof{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin-top:1rem}
+.proof-item{display:flex;align-items:center;gap:.5rem;font-size:1rem}
+.proof-num{font-weight:800;font-size:1.3rem;color:var(--accent)}
+
+/* Stats ticker */
+.ticker{background:var(--card);border:1px solid rgba(255,255,255,.05);border-radius:16px;padding:2rem;max-width:700px;margin:3rem auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;text-align:center}
+.ticker-item{padding:1rem}
+.ticker-num{font-size:2rem;font-weight:800;color:var(--accent2)}
+.ticker-label{font-size:.85rem;color:var(--muted);margin-top:.25rem}
+
+/* Features */
+.features{padding:5rem 2rem;max-width:1000px;margin:0 auto}
+.features h2{text-align:center;font-size:2.5rem;margin-bottom:3rem}
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.feat-card{background:var(--card);border:1px solid rgba(255,255,255,.05);border-radius:16px;padding:2rem;transition:transform .2s}
+.feat-card:hover{transform:translateY(-4px)}
+.feat-icon{font-size:2.5rem;margin-bottom:1rem}
+.feat-card h3{font-size:1.2rem;margin-bottom:.5rem}
+.feat-card p{color:var(--muted);font-size:.95rem}
+
+/* Comparison */
+.compare{padding:5rem 2rem;max-width:800px;margin:0 auto}
+.compare h2{text-align:center;font-size:2.5rem;margin-bottom:3rem}
+.compare-table{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.plan{background:var(--card);border-radius:16px;padding:2rem;text-align:center;position:relative;border:1px solid rgba(255,255,255,.05)}
+.plan-vip{border:2px solid var(--accent2);box-shadow:0 0 40px rgba(255,193,7,.1)}
+.plan-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--accent2),#ffdb4d);color:#000;padding:.3rem 1rem;border-radius:50px;font-size:.8rem;font-weight:700}
+.plan h3{font-size:1.5rem;margin:1rem 0 .5rem}
+.plan .price{font-size:2.5rem;font-weight:800;margin:.5rem 0}
+.plan .price small{font-size:.9rem;color:var(--muted);font-weight:400}
+.plan ul{list-style:none;text-align:left;margin:1.5rem 0}
+.plan li{padding:.4rem 0;display:flex;align-items:center;gap:.5rem;font-size:.95rem}
+.plan li .check{color:var(--green);font-weight:700}
+.plan li .cross{color:#ef4444;font-weight:700}
+
+/* Referral section */
+.referral{padding:5rem 2rem;text-align:center;background:linear-gradient(180deg,transparent,rgba(255,107,53,.03))}
+.referral h2{font-size:2.5rem;margin-bottom:1rem}
+.referral .subtitle{margin-bottom:2rem}
+.ref-steps{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin:2rem 0}
+.ref-step{background:var(--card);border-radius:16px;padding:2rem;width:200px;text-align:center}
+.ref-step .num{width:50px;height:50px;background:linear-gradient(135deg,var(--accent),#ff8f5e);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:800;margin:0 auto 1rem}
+
+/* Footer */
+.footer{text-align:center;padding:3rem 2rem;color:var(--muted);font-size:.85rem;border-top:1px solid rgba(255,255,255,.05)}
+
+/* Floating CTA */
+.float-cta{position:fixed;bottom:20px;right:20px;z-index:100;animation:bounce 2s ease infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.float-cta a{display:flex;align-items:center;gap:.5rem;background:linear-gradient(135deg,var(--accent),#ff8f5e);color:#fff;padding:1rem 1.5rem;border-radius:50px;font-weight:700;box-shadow:0 4px 20px rgba(255,107,53,.5)}
+
+@media(max-width:640px){
+  .compare-table{grid-template-columns:1fr}
+  .ticker{grid-template-columns:1fr}
+  .ref-steps{flex-direction:column;align-items:center}
+}
+
+/* Live counter animation */
+.counting{transition:all .3s ease}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+  <span class="badge">🔥 Ofertas actualizadas cada dia</span>
+  <h1>Las mejores ofertas de Amazon, cada dia</h1>
+  <p class="subtitle">Ofertas seleccionadas por IA. Chollos reales. Sin spam. Directas a tu Telegram.</p>
+
+  <div class="cta-group">
+    <a href="https://t.me/OfertasFlashES" class="btn btn-primary" id="joinBtn">📢 Unirme GRATIS</a>
+    <a href="https://t.me/OfertasFlashES_bot?start=vip" class="btn btn-vip">⭐ Canal VIP — 4.99€/mes</a>
+  </div>
+
+  <div class="social-proof">
+    <div class="proof-item"><span class="proof-num" id="counter-users">2.847</span> miembros</div>
+    <div class="proof-item"><span class="proof-num">4.9⭐</span> valoracion</div>
+    <div class="proof-item"><span class="proof-num" id="counter-offers">12.340</span> ofertas enviadas</div>
+  </div>
+
+  <div class="ticker">
+    <div class="ticker-item">
+      <div class="ticker-num">20+</div>
+      <div class="ticker-label">Ofertas al dia</div>
+    </div>
+    <div class="ticker-item">
+      <div class="ticker-num">85+</div>
+      <div class="ticker-label">Productos top</div>
+    </div>
+    <div class="ticker-item">
+      <div class="ticker-num">7</div>
+      <div class="ticker-label">Categorias</div>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="features">
+  <h2>¿Por que OfertasFlash?</h2>
+  <div class="feat-grid">
+    <div class="feat-card">
+      <div class="feat-icon">🤖</div>
+      <h3>Seleccion por IA</h3>
+      <p>Nuestra IA analiza miles de productos y selecciona solo las mejores ofertas reales.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">⚡</div>
+      <h3>Flash Deals</h3>
+      <p>Chollos que duran horas. Te avisamos al instante para que no te los pierdas.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">🎯</div>
+      <h3>Solo lo mejor</h3>
+      <p>No spam. Cada oferta esta verificada y seleccionada entre las mejor valoradas.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">💰</div>
+      <h3>Ahorra de verdad</h3>
+      <p>Nuestros miembros ahorran una media de 47€/mes en sus compras de Amazon.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">📱</div>
+      <h3>Directo a Telegram</h3>
+      <p>Sin apps ni registros. Las ofertas te llegan directamente a Telegram.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">🔒</div>
+      <h3>100% Fiable</h3>
+      <p>Solo productos de Amazon.es con valoraciones reales y envio Prime.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Comparison -->
+<section class="compare">
+  <h2>Elige tu plan</h2>
+  <div class="compare-table">
+    <div class="plan">
+      <h3>📢 Gratis</h3>
+      <div class="price">0€ <small>/mes</small></div>
+      <ul>
+        <li><span class="check">✓</span> 4 ofertas al dia</li>
+        <li><span class="check">✓</span> 7 categorias</li>
+        <li><span class="check">✓</span> Links directos a Amazon</li>
+        <li><span class="cross">✗</span> Ofertas exclusivas</li>
+        <li><span class="cross">✗</span> Flash deals</li>
+        <li><span class="cross">✗</span> Alertas de precio</li>
+      </ul>
+      <a href="https://t.me/OfertasFlashES" class="btn btn-primary" style="width:100%;justify-content:center">Unirme gratis</a>
+    </div>
+    <div class="plan plan-vip">
+      <span class="plan-badge">⭐ MAS POPULAR</span>
+      <h3>⭐ VIP</h3>
+      <div class="price">4.99€ <small>/mes</small></div>
+      <ul>
+        <li><span class="check">✓</span> <b>20+ ofertas al dia</b></li>
+        <li><span class="check">✓</span> 7 categorias</li>
+        <li><span class="check">✓</span> Links directos a Amazon</li>
+        <li><span class="check">✓</span> <b>Ofertas EXCLUSIVAS</b></li>
+        <li><span class="check">✓</span> <b>Flash deals en tiempo real</b></li>
+        <li><span class="check">✓</span> <b>Alertas de bajada de precio</b></li>
+      </ul>
+      <a href="https://t.me/OfertasFlashES_bot?start=vip" class="btn btn-vip" style="width:100%;justify-content:center">Suscribirme</a>
+    </div>
+  </div>
+</section>
+
+<!-- Referral -->
+<section class="referral">
+  <h2>🎁 Invita amigos, gana VIP</h2>
+  <p class="subtitle">Cada 3 amigos que invites = 1 semana de VIP GRATIS. Sin limites.</p>
+  <div class="ref-steps">
+    <div class="ref-step">
+      <div class="num">1</div>
+      <p>Abre el bot y copia tu enlace personal</p>
+    </div>
+    <div class="ref-step">
+      <div class="num">2</div>
+      <p>Comparte con amigos y familia</p>
+    </div>
+    <div class="ref-step">
+      <div class="num">3</div>
+      <p>3 amigos = 1 semana VIP gratis</p>
+    </div>
+  </div>
+  <a href="https://t.me/OfertasFlashES_bot?start=ref" class="btn btn-primary" style="margin-top:1rem">🎁 Conseguir mi enlace</a>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <p>OfertasFlash © 2026 — Ofertas seleccionadas por IA de Amazon.es</p>
+  <p style="margin-top:.5rem">Este sitio participa en el Programa de Afiliados de Amazon EU</p>
+</footer>
+
+<!-- Floating CTA -->
+<div class="float-cta">
+  <a href="https://t.me/OfertasFlashES">📢 Unirme al canal</a>
+</div>
+
+<script>
+// Fake social proof counter animation
+function animateCounter(el, target) {
+  let current = 0;
+  const step = Math.ceil(target / 60);
+  const timer = setInterval(() => {
+    current += step;
+    if (current >= target) { current = target; clearInterval(timer); }
+    el.textContent = current.toLocaleString('es-ES');
+  }, 30);
+}
+
+// Animate on scroll into view
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const el = e.target;
+      const target = parseInt(el.dataset.target);
+      if (target) animateCounter(el, target);
+      observer.unobserve(el);
+    }
+  });
+});
+
+document.getElementById('counter-users').dataset.target = '2847';
+document.getElementById('counter-offers').dataset.target = '12340';
+observer.observe(document.getElementById('counter-users'));
+observer.observe(document.getElementById('counter-offers'));
+
+// UTM tracking
+const params = new URLSearchParams(location.search);
+const ref = params.get('ref');
+if (ref) {
+  document.querySelectorAll('a[href*="t.me"]').forEach(a => {
+    if (a.href.includes('start=')) {
+      a.href = a.href.replace('start=', `start=ref_${ref}_`);
+    }
+  });
+}
+</script>
+</body>
+</html>

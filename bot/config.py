@@ -1,4 +1,15 @@
 import os
+from pathlib import Path
+
+# Cargar .env si existe
+_env_path = Path(__file__).parent / ".env"
+if _env_path.exists():
+    for line in _env_path.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if line and not line.startswith("#") and "=" in line:
+            key, val = line.split("=", 1)
+            if val and not os.environ.get(key.strip()):
+                os.environ[key.strip()] = val.strip()
 
 # Groq AI
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
