@@ -6,9 +6,12 @@ Recibe pagos y activa VIP automaticamente via Telegram.
 Corre en VPS en el puerto 5050.
 """
 
+import hashlib
+import hmac
 import json
 import os
 import sys
+import time
 import urllib.request
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from pathlib import Path
@@ -30,6 +33,30 @@ VIP_INVITE_LINK = os.environ.get("VIP_INVITE_LINK", "")
 STRIPE_WEBHOOK_SECRET = os.environ.get("STRIPE_WEBHOOK_SECRET", "")
 
 PORT = 5050
+STRIPE_TOLERANCE = 300  # 5 minutes tolerance for webhook timestamp
+
+
+def verify_stripe_signature(payload: bytes, sig_header: str, secret: str) -> bool:
+    """Verify Stripe webhook signature (v1 scheme)."""
+    if not secret or not sig_header:
+        return False
+    try:
+        pairs = dict(p.split("=", 1) for p in sig_header.split(",") if "=" in p)
+        timestamp = pairs.get("t", "")
+        v1_sig = pairs.get("v1", "")
+        if not timestamp or not v1_sig:
+            return False
+        # Check timestamp tolerance
+        if abs(time.time() - int(timestamp)) > STRIPE_TOLERANCE:
+            print("[Stripe] Webhook timestamp too old, rejecting")
+            return False
+        # Compute expected signature
+        signed_payload = f"{timestamp}.".encode() + payload
+        expected = hmac.new(secret.encode(), signed_payload, hashlib.sha256).hexdigest()
+        return hmac.compare_digest(expected, v1_sig)
+    except Exception as e:
+        print(f"[Stripe] Signature verification error: {e}")
+        return False
 
 
 def send_telegram(chat_id: int, text: str):
@@ -57,11 +84,22 @@ class WebhookHandler(BaseHTTPRequestHandler):
         content_len = int(self.headers.get("Content-Length", 0))
         body = self.rfile.read(content_len)
 
+        # Verify Stripe signature
+        if STRIPE_WEBHOOK_SECRET:
+            sig_header = self.headers.get("Stripe-Signature", "")
+            if not verify_stripe_signature(body, sig_header, STRIPE_WEBHOOK_SECRET):
+                print("[Stripe] Invalid signature — rejecting webhook")
+                self.send_response(403)
+                self.end_headers()
+                self.wfile.write(b'{"error": "invalid signature"}')
+                return
+
         try:
             event = json.loads(body.decode())
-        except:
+        except Exception:
             self.send_response(400)
             self.end_headers()
+            self.wfile.write(b'{"error": "invalid JSON"}')
             return
 
         event_type = event.get("type", "")

@@ -6,12 +6,15 @@ import sys
 import io
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
 
+import os
 import paramiko
 from pathlib import Path
 
-VPS_HOST = "62.171.128.42"
-VPS_USER = "root"
-VPS_PASS = "Ratita1987"
+VPS_HOST = os.environ.get("VPS_HOST", "62.171.128.42")
+VPS_USER = os.environ.get("VPS_USER", "root")
+VPS_PASS = os.environ.get("VPS_PASS", "")
+if not VPS_PASS:
+    VPS_PASS = input("VPS password: ").strip()
 VPS_PATH = "/root/ofertas/bot"
 
 BOT_DIR = Path(__file__).parent / "bot"
@@ -33,7 +36,7 @@ def main():
     # Subir archivos del bot
     files = [
         "viral_bot.py", "ofertas_bot.py", "config.py", "database.py",
-        "stripe_webhook.py", "products.json", "history.json",
+        "stripe_webhook.py", "products.json",
         ".env", "requirements.txt",
     ]
     for f in files:

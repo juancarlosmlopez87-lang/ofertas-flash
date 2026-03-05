@@ -83,13 +83,15 @@ def load_products() -> dict:
 def load_history() -> list:
     history_file = BOT_DIR / "history.json"
     if history_file.exists():
-        return json.load(open(history_file, "r", encoding="utf-8"))
+        with open(history_file, "r", encoding="utf-8") as f:
+            return json.load(f)
     return []
 
 
 def save_history(history: list):
     history_file = BOT_DIR / "history.json"
-    json.dump(history, open(history_file, "w", encoding="utf-8"), indent=2, ensure_ascii=False)
+    with open(history_file, "w", encoding="utf-8") as f:
+        json.dump(history, f, indent=2, ensure_ascii=False)
 
 
 def select_products(n: int, vip_only: bool = False) -> list:
@@ -273,6 +275,10 @@ Tu enlace personal:
 
 async def cmd_stats(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Comando /stats — solo admin."""
+    admin_id = int(os.environ.get("ADMIN_TELEGRAM_ID", "0"))
+    if admin_id and update.effective_user.id != admin_id:
+        await update.message.reply_text("No autorizado.")
+        return
     stats = get_stats()
     user = get_user(update.effective_user.id)
 

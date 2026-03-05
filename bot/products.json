@@ -18,7 +18,12 @@
         {"name": "Sony WH-1000XM5", "asin": "B09XS7JWHH", "price_range": "299-379€", "keywords": ["auriculares", "cancelacion ruido", "Sony"]},
         {"name": "Fire TV Stick 4K Max", "asin": "B0BTFKXRM7", "price_range": "44-69€", "keywords": ["streaming", "TV", "Amazon"]},
         {"name": "iPad 10 generacion", "asin": "B0BJLXMVMV", "price_range": "349-399€", "keywords": ["tablet", "Apple", "iPad"]},
-        {"name": "Xiaomi Redmi Note 13 Pro", "asin": "B0CS2HT9FM", "price_range": "199-279€", "keywords": ["movil", "Xiaomi", "calidad precio"]}
+        {"name": "Xiaomi Redmi Note 13 Pro", "asin": "B0CS2HT9FM", "price_range": "199-279€", "keywords": ["movil", "Xiaomi", "calidad precio"]},
+        {"name": "Meta Quest 3 128GB", "asin": "B0C8VKH1ZH", "price_range": "549-599€", "keywords": ["realidad virtual", "VR", "Meta"]},
+        {"name": "DJI Mini 4 Pro", "asin": "B0CG1J84QP", "price_range": "799-999€", "keywords": ["drone", "camara", "DJI"]},
+        {"name": "MacBook Air M3", "asin": "B0CX23V2ZK", "price_range": "1149-1399€", "keywords": ["portatil", "Apple", "ultraligero"]},
+        {"name": "Samsung Galaxy Tab S9 FE", "asin": "B0CG9HZ5LK", "price_range": "349-449€", "keywords": ["tablet", "Samsung", "S-Pen"]},
+        {"name": "Bose QuietComfort Ultra", "asin": "B0CCZ1L489", "price_range": "349-449€", "keywords": ["auriculares", "cancelacion ruido", "Bose"]}
       ]
     },
     {
@@ -39,7 +44,11 @@
         {"name": "Crock-Pot Digital 5.7L", "asin": "B00BKPQR7I", "price_range": "49-69€", "keywords": ["slow cooker", "olla lenta"]},
         {"name": "Brita Marella XL", "asin": "B000YHEUMW", "price_range": "19-29€", "keywords": ["jarra filtro", "agua"]},
         {"name": "Xiaomi Mi Air Purifier 4", "asin": "B0BHNS3KBZ", "price_range": "149-199€", "keywords": ["purificador aire", "Xiaomi"]},
-        {"name": "Ring Video Doorbell 4", "asin": "B0BFJNL42P", "price_range": "99-149€", "keywords": ["timbre inteligente", "camara", "seguridad"]}
+        {"name": "Ring Video Doorbell 4", "asin": "B0BFJNL42P", "price_range": "99-149€", "keywords": ["timbre inteligente", "camara", "seguridad"]},
+        {"name": "Thermomix TM6 alternativa Cecotec Mambo", "asin": "B0BFHV82YY", "price_range": "299-449€", "keywords": ["robot cocina", "Cecotec", "recetas"]},
+        {"name": "Samsung Bespoke Jet", "asin": "B0BHQ2XYK6", "price_range": "499-699€", "keywords": ["aspirador", "sin cable", "Samsung"]},
+        {"name": "Dreame L20 Ultra", "asin": "B0CQ4CV1ML", "price_range": "799-999€", "keywords": ["robot aspirador", "fregado", "autovaciado"]},
+        {"name": "Nespresso Vertuo Next", "asin": "B08HR2YFRQ", "price_range": "79-149€", "keywords": ["cafetera", "capsulas", "Nespresso"]}
       ]
     },
     {
@@ -55,7 +64,10 @@
         {"name": "Xbox Elite Controller S2", "asin": "B07SFKTLZM", "price_range": "139-179€", "keywords": ["mando", "Xbox", "premium"]},
         {"name": "Corsair K70 RGB PRO", "asin": "B09NCLR4M6", "price_range": "129-169€", "keywords": ["teclado mecanico", "Corsair"]},
         {"name": "LG UltraGear 27GP850", "asin": "B097BVNP75", "price_range": "349-449€", "keywords": ["monitor gaming", "165Hz", "Nano IPS"]},
-        {"name": "Elgato Stream Deck MK.2", "asin": "B09738CV2Q", "price_range": "119-149€", "keywords": ["streaming", "botones", "OBS"]}
+        {"name": "Elgato Stream Deck MK.2", "asin": "B09738CV2Q", "price_range": "119-149€", "keywords": ["streaming", "botones", "OBS"]},
+        {"name": "Nintendo Switch OLED", "asin": "B098RKWHHZ", "price_range": "299-349€", "keywords": ["consola", "Nintendo", "portatil"]},
+        {"name": "PS5 Slim Edicion Digital", "asin": "B0CL5FMXBF", "price_range": "399-449€", "keywords": ["consola", "PlayStation", "PS5"]},
+        {"name": "MSI Katana 15 Gaming", "asin": "B0CX1S7FJ9", "price_range": "799-999€", "keywords": ["portatil gaming", "RTX", "MSI"]}
       ]
     },
     {
