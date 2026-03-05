@@ -5,108 +5,175 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>OfertasFlash — Las mejores ofertas de Amazon cada día</title>
 <meta name="description" content="Ofertas exclusivas de Amazon España seleccionadas por IA. Chollos, descuentos y flash deals todos los días. Gratis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#0a0a0f;--card:#13131a;--accent:#ff6b35;--accent2:#ffc107;--green:#22c55e;--text:#fff;--muted:#94a3b8}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
-a{color:var(--accent);text-decoration:none}
+:root{
+  --bg:#ffffff;
+  --card:#ffffff;
+  --accent:#ff6b35;
+  --accent-light:#fff4ef;
+  --accent2:#ffc107;
+  --accent2-light:#fffbeb;
+  --green:#16a34a;
+  --text:#111827;
+  --text-secondary:#4b5563;
+  --muted:#6b7280;
+  --border:#e5e7eb;
+  --border-light:#f3f4f6;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.05);
+  --shadow:0 1px 3px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.04);
+  --shadow-md:0 4px 6px -1px rgba(0,0,0,.07),0 2px 4px -2px rgba(0,0,0,.05);
+  --shadow-lg:0 10px 25px -3px rgba(0,0,0,.08),0 4px 6px -4px rgba(0,0,0,.04);
+  --shadow-xl:0 20px 50px -12px rgba(0,0,0,.12);
+  --radius:12px;
+  --radius-lg:16px;
+}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none;transition:color .2s}
+a:hover{color:#e55a2b}
+
+/* Navbar */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border-light);padding:.75rem 2rem;display:flex;align-items:center;justify-content:space-between;max-width:100%}
+.nav-brand{font-weight:800;font-size:1.2rem;color:var(--text);display:flex;align-items:center;gap:.5rem}
+.nav-brand span{color:var(--accent)}
+.nav-links{display:flex;gap:1.5rem;align-items:center}
+.nav-links a{color:var(--text-secondary);font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--accent)}
+.nav-cta{background:var(--accent);color:#fff !important;padding:.5rem 1.2rem;border-radius:8px;font-weight:600;font-size:.85rem}
+.nav-cta:hover{background:#e55a2b;color:#fff !important}
 
 /* Hero */
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(255,107,53,.15),transparent 70%);top:-200px;right:-200px;border-radius:50%}
-.hero::after{content:'';position:absolute;width:400px;height:400px;background:radial-gradient(circle,rgba(255,193,7,.1),transparent 70%);bottom:-100px;left:-100px;border-radius:50%}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem 4rem;position:relative;overflow:hidden;background:#ffffff}
+.hero::before{content:'';position:absolute;width:800px;height:800px;background:radial-gradient(circle,rgba(255,107,53,.04),transparent 70%);top:-300px;right:-300px;border-radius:50%;pointer-events:none}
+.hero::after{content:'';position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(255,193,7,.03),transparent 70%);bottom:-200px;left:-200px;border-radius:50%;pointer-events:none}
 .hero>*{position:relative;z-index:1}
 
-.badge{display:inline-block;background:linear-gradient(135deg,var(--accent),#ff8f5e);padding:.4rem 1.2rem;border-radius:50px;font-size:.85rem;font-weight:600;margin-bottom:1.5rem;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.7}}
+.badge{display:inline-flex;align-items:center;gap:.4rem;background:var(--accent-light);color:var(--accent);padding:.5rem 1.2rem;border-radius:50px;font-size:.85rem;font-weight:600;margin-bottom:2rem;border:1px solid rgba(255,107,53,.15)}
 
-h1{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:800;line-height:1.1;margin-bottom:1rem;background:linear-gradient(135deg,#fff 30%,var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.subtitle{font-size:1.3rem;color:var(--muted);max-width:600px;margin:0 auto 2rem}
+h1{font-size:clamp(2.5rem,5.5vw,4.2rem);font-weight:900;line-height:1.1;margin-bottom:1.2rem;color:var(--text);letter-spacing:-.03em}
+h1 .highlight{color:var(--accent)}
+.subtitle{font-size:1.15rem;color:var(--muted);max-width:560px;margin:0 auto 2.5rem;line-height:1.7;font-weight:400}
 
-.cta-group{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-bottom:2rem}
-.btn{display:inline-flex;align-items:center;gap:.5rem;padding:1rem 2rem;border-radius:12px;font-size:1.1rem;font-weight:700;border:none;cursor:pointer;transition:all .2s}
-.btn-primary{background:linear-gradient(135deg,var(--accent),#ff8f5e);color:#fff;box-shadow:0 4px 20px rgba(255,107,53,.4)}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(255,107,53,.5)}
-.btn-vip{background:linear-gradient(135deg,var(--accent2),#ffdb4d);color:#000;box-shadow:0 4px 20px rgba(255,193,7,.3)}
-.btn-vip:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(255,193,7,.4)}
+.cta-group{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-bottom:2.5rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 2rem;border-radius:10px;font-size:1rem;font-weight:700;border:none;cursor:pointer;transition:all .2s ease;text-decoration:none}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 2px 8px rgba(255,107,53,.25)}
+.btn-primary:hover{background:#e55a2b;transform:translateY(-1px);box-shadow:0 6px 20px rgba(255,107,53,.3);color:#fff}
+.btn-vip{background:linear-gradient(135deg,#ffc107,#ffcd38);color:#1a1a1a;box-shadow:0 2px 8px rgba(255,193,7,.2)}
+.btn-vip:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(255,193,7,.3);color:#1a1a1a}
 
-.social-proof{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin-top:1rem}
-.proof-item{display:flex;align-items:center;gap:.5rem;font-size:1rem}
-.proof-num{font-weight:800;font-size:1.3rem;color:var(--accent)}
+.social-proof{display:flex;gap:2.5rem;justify-content:center;flex-wrap:wrap;margin-top:.5rem}
+.proof-item{display:flex;align-items:center;gap:.4rem;font-size:.95rem;color:var(--muted)}
+.proof-num{font-weight:800;font-size:1.15rem;color:var(--text)}
 
 /* Stats ticker */
-.ticker{background:var(--card);border:1px solid rgba(255,255,255,.05);border-radius:16px;padding:2rem;max-width:700px;margin:3rem auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;text-align:center}
+.ticker{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2rem;max-width:680px;margin:3.5rem auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;text-align:center;box-shadow:var(--shadow)}
 .ticker-item{padding:1rem}
-.ticker-num{font-size:2rem;font-weight:800;color:var(--accent2)}
-.ticker-label{font-size:.85rem;color:var(--muted);margin-top:.25rem}
+.ticker-num{font-size:2rem;font-weight:800;color:var(--accent)}
+.ticker-label{font-size:.85rem;color:var(--muted);margin-top:.3rem;font-weight:500}
+
+/* Section shared */
+section h2{font-size:clamp(1.8rem,3.5vw,2.4rem);font-weight:800;letter-spacing:-.02em;color:var(--text)}
+.section-sub{color:var(--muted);font-size:1.05rem;max-width:500px;margin:0 auto;line-height:1.6}
 
 /* Features */
-.features{padding:5rem 2rem;max-width:1000px;margin:0 auto}
-.features h2{text-align:center;font-size:2.5rem;margin-bottom:3rem}
-.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
-.feat-card{background:var(--card);border:1px solid rgba(255,255,255,.05);border-radius:16px;padding:2rem;transition:transform .2s}
-.feat-card:hover{transform:translateY(-4px)}
-.feat-icon{font-size:2.5rem;margin-bottom:1rem}
-.feat-card h3{font-size:1.2rem;margin-bottom:.5rem}
-.feat-card p{color:var(--muted);font-size:.95rem}
+.features{padding:6rem 2rem;max-width:1000px;margin:0 auto}
+.features h2{text-align:center;margin-bottom:.8rem}
+.features .section-sub{text-align:center;margin-bottom:3.5rem}
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem}
+.feat-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2rem;transition:all .25s ease;box-shadow:var(--shadow-sm)}
+.feat-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:rgba(255,107,53,.2)}
+.feat-icon{width:48px;height:48px;background:var(--accent-light);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1.2rem}
+.feat-card h3{font-size:1.05rem;font-weight:700;margin-bottom:.4rem;color:var(--text)}
+.feat-card p{color:var(--muted);font-size:.9rem;line-height:1.6}
 
 /* Comparison */
-.compare{padding:5rem 2rem;max-width:800px;margin:0 auto}
-.compare h2{text-align:center;font-size:2.5rem;margin-bottom:3rem}
+.compare{padding:6rem 2rem;max-width:800px;margin:0 auto}
+.compare h2{text-align:center;margin-bottom:.8rem}
+.compare .section-sub{text-align:center;margin-bottom:3.5rem}
 .compare-table{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
-.plan{background:var(--card);border-radius:16px;padding:2rem;text-align:center;position:relative;border:1px solid rgba(255,255,255,.05)}
-.plan-vip{border:2px solid var(--accent2);box-shadow:0 0 40px rgba(255,193,7,.1)}
-.plan-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--accent2),#ffdb4d);color:#000;padding:.3rem 1rem;border-radius:50px;font-size:.8rem;font-weight:700}
-.plan h3{font-size:1.5rem;margin:1rem 0 .5rem}
-.plan .price{font-size:2.5rem;font-weight:800;margin:.5rem 0}
-.plan .price small{font-size:.9rem;color:var(--muted);font-weight:400}
+.plan{background:var(--card);border-radius:var(--radius-lg);padding:2.5rem 2rem;text-align:center;position:relative;border:1px solid var(--border);box-shadow:var(--shadow);transition:all .25s ease}
+.plan:hover{box-shadow:var(--shadow-lg)}
+.plan-vip{border:2px solid var(--accent2);box-shadow:var(--shadow-lg)}
+.plan-vip:hover{box-shadow:var(--shadow-xl)}
+.plan-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--accent2),#ffcd38);color:#1a1a1a;padding:.35rem 1.2rem;border-radius:50px;font-size:.75rem;font-weight:700;letter-spacing:.02em;white-space:nowrap}
+.plan h3{font-size:1.3rem;margin:1rem 0 .5rem;color:var(--text)}
+.plan .price{font-size:2.8rem;font-weight:900;margin:.5rem 0;color:var(--text);letter-spacing:-.02em}
+.plan .price small{font-size:.85rem;color:var(--muted);font-weight:400}
 .plan ul{list-style:none;text-align:left;margin:1.5rem 0}
-.plan li{padding:.4rem 0;display:flex;align-items:center;gap:.5rem;font-size:.95rem}
-.plan li .check{color:var(--green);font-weight:700}
-.plan li .cross{color:#ef4444;font-weight:700}
+.plan li{padding:.45rem 0;display:flex;align-items:center;gap:.6rem;font-size:.9rem;color:var(--text-secondary)}
+.plan li .check{color:var(--green);font-weight:700;font-size:1rem}
+.plan li .cross{color:#d1d5db;font-weight:700;font-size:1rem}
+.plan li b{color:var(--text);font-weight:600}
 
 /* Referral section */
-.referral{padding:5rem 2rem;text-align:center;background:linear-gradient(180deg,transparent,rgba(255,107,53,.03))}
-.referral h2{font-size:2.5rem;margin-bottom:1rem}
-.referral .subtitle{margin-bottom:2rem}
-.ref-steps{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin:2rem 0}
-.ref-step{background:var(--card);border-radius:16px;padding:2rem;width:200px;text-align:center}
-.ref-step .num{width:50px;height:50px;background:linear-gradient(135deg,var(--accent),#ff8f5e);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:800;margin:0 auto 1rem}
+.referral{padding:6rem 2rem;text-align:center;background:var(--accent-light);border-top:1px solid rgba(255,107,53,.08);border-bottom:1px solid rgba(255,107,53,.08)}
+.referral h2{margin-bottom:.8rem}
+.referral .subtitle{color:var(--muted);margin-bottom:2.5rem;font-size:1.05rem}
+.ref-steps{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin:2rem 0}
+.ref-step{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2rem 1.5rem;width:200px;text-align:center;box-shadow:var(--shadow)}
+.ref-step .num{width:44px;height:44px;background:var(--accent);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:800;margin:0 auto 1rem}
+.ref-step p{font-size:.9rem;color:var(--text-secondary);line-height:1.5}
 
 /* Footer */
-.footer{text-align:center;padding:3rem 2rem;color:var(--muted);font-size:.85rem;border-top:1px solid rgba(255,255,255,.05)}
+.footer{text-align:center;padding:3rem 2rem;color:var(--muted);font-size:.85rem;border-top:1px solid var(--border);background:#fafafa}
+.footer p+p{margin-top:.4rem}
 
 /* Floating CTA */
-.float-cta{position:fixed;bottom:20px;right:20px;z-index:100;animation:bounce 2s ease infinite}
-@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-.float-cta a{display:flex;align-items:center;gap:.5rem;background:linear-gradient(135deg,var(--accent),#ff8f5e);color:#fff;padding:1rem 1.5rem;border-radius:50px;font-weight:700;box-shadow:0 4px 20px rgba(255,107,53,.5)}
+.float-cta{position:fixed;bottom:24px;right:24px;z-index:100;animation:bounce 2.5s ease infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.float-cta a{display:flex;align-items:center;gap:.5rem;background:var(--accent);color:#fff;padding:.85rem 1.4rem;border-radius:50px;font-weight:700;font-size:.9rem;box-shadow:0 4px 16px rgba(255,107,53,.35);transition:all .2s}
+.float-cta a:hover{background:#e55a2b;box-shadow:0 8px 24px rgba(255,107,53,.4);color:#fff}
 
-@media(max-width:640px){
+/* Responsive */
+@media(max-width:768px){
+  .navbar{padding:.6rem 1rem}
+  .nav-links a:not(.nav-cta){display:none}
+  .hero{padding:5rem 1.5rem 3rem}
   .compare-table{grid-template-columns:1fr}
-  .ticker{grid-template-columns:1fr}
+  .ticker{grid-template-columns:1fr;gap:0}
+  .ticker-item{padding:.75rem 1rem}
+  .ticker-item+.ticker-item{border-top:1px solid var(--border)}
   .ref-steps{flex-direction:column;align-items:center}
+  .feat-grid{grid-template-columns:1fr}
 }
 
-/* Live counter animation */
+/* Counter animation */
 .counting{transition:all .3s ease}
+
+/* Subtle divider */
+.divider{width:48px;height:3px;background:var(--accent);border-radius:2px;margin:0 auto 2rem}
 </style>
 </head>
 <body>
 
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="nav-brand"><span>Ofertas</span>Flash</div>
+  <div class="nav-links">
+    <a href="#features">Ventajas</a>
+    <a href="#pricing">Planes</a>
+    <a href="#referral">Invita y gana</a>
+    <a href="https://t.me/OfertasFlashES" class="nav-cta">Unirme gratis</a>
+  </div>
+</nav>
+
 <!-- Hero -->
 <section class="hero">
-  <span class="badge">🔥 Ofertas actualizadas cada dia</span>
-  <h1>Las mejores ofertas de Amazon, cada dia</h1>
+  <span class="badge">Ofertas actualizadas cada dia</span>
+  <h1>Las mejores ofertas<br>de Amazon, <span class="highlight">cada dia</span></h1>
   <p class="subtitle">Ofertas seleccionadas por IA. Chollos reales. Sin spam. Directas a tu Telegram.</p>
 
   <div class="cta-group">
-    <a href="https://t.me/OfertasFlashES" class="btn btn-primary" id="joinBtn">📢 Unirme GRATIS</a>
-    <a href="https://t.me/OfertasFlashES_bot?start=vip" class="btn btn-vip">⭐ Canal VIP — 4.99€/mes</a>
+    <a href="https://t.me/OfertasFlashES" class="btn btn-primary" id="joinBtn">Unirme GRATIS</a>
+    <a href="https://t.me/OfertasFlashES_bot?start=vip" class="btn btn-vip">Canal VIP — 4.99€/mes</a>
   </div>
 
   <div class="social-proof">
     <div class="proof-item"><span class="proof-num" id="counter-users">2.847</span> miembros</div>
-    <div class="proof-item"><span class="proof-num">4.9⭐</span> valoracion</div>
+    <div class="proof-item"><span class="proof-num">4.9/5</span> valoracion</div>
     <div class="proof-item"><span class="proof-num" id="counter-offers">12.340</span> ofertas enviadas</div>
   </div>
 
@@ -127,8 +194,10 @@ h1{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:800;line-height:1.1;margin-bot
 </section>
 
 <!-- Features -->
-<section class="features">
+<section class="features" id="features">
   <h2>¿Por que OfertasFlash?</h2>
+  <p class="section-sub">Todo lo que necesitas para no perderte ninguna oferta de Amazon.</p>
+  <div class="divider"></div>
   <div class="feat-grid">
     <div class="feat-card">
       <div class="feat-icon">🤖</div>
@@ -164,33 +233,35 @@ h1{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:800;line-height:1.1;margin-bot
 </section>
 
 <!-- Comparison -->
-<section class="compare">
+<section class="compare" id="pricing">
   <h2>Elige tu plan</h2>
+  <p class="section-sub">Empieza gratis. Mejora cuando quieras.</p>
+  <div class="divider"></div>
   <div class="compare-table">
     <div class="plan">
-      <h3>📢 Gratis</h3>
+      <h3>Gratis</h3>
       <div class="price">0€ <small>/mes</small></div>
       <ul>
-        <li><span class="check">✓</span> 4 ofertas al dia</li>
-        <li><span class="check">✓</span> 7 categorias</li>
-        <li><span class="check">✓</span> Links directos a Amazon</li>
-        <li><span class="cross">✗</span> Ofertas exclusivas</li>
-        <li><span class="cross">✗</span> Flash deals</li>
-        <li><span class="cross">✗</span> Alertas de precio</li>
+        <li><span class="check">&#10003;</span> 4 ofertas al dia</li>
+        <li><span class="check">&#10003;</span> 7 categorias</li>
+        <li><span class="check">&#10003;</span> Links directos a Amazon</li>
+        <li><span class="cross">&#10005;</span> Ofertas exclusivas</li>
+        <li><span class="cross">&#10005;</span> Flash deals</li>
+        <li><span class="cross">&#10005;</span> Alertas de precio</li>
       </ul>
       <a href="https://t.me/OfertasFlashES" class="btn btn-primary" style="width:100%;justify-content:center">Unirme gratis</a>
     </div>
     <div class="plan plan-vip">
-      <span class="plan-badge">⭐ MAS POPULAR</span>
-      <h3>⭐ VIP</h3>
+      <span class="plan-badge">MAS POPULAR</span>
+      <h3>VIP</h3>
       <div class="price">4.99€ <small>/mes</small></div>
       <ul>
-        <li><span class="check">✓</span> <b>20+ ofertas al dia</b></li>
-        <li><span class="check">✓</span> 7 categorias</li>
-        <li><span class="check">✓</span> Links directos a Amazon</li>
-        <li><span class="check">✓</span> <b>Ofertas EXCLUSIVAS</b></li>
-        <li><span class="check">✓</span> <b>Flash deals en tiempo real</b></li>
-        <li><span class="check">✓</span> <b>Alertas de bajada de precio</b></li>
+        <li><span class="check">&#10003;</span> <b>20+ ofertas al dia</b></li>
+        <li><span class="check">&#10003;</span> 7 categorias</li>
+        <li><span class="check">&#10003;</span> Links directos a Amazon</li>
+        <li><span class="check">&#10003;</span> <b>Ofertas EXCLUSIVAS</b></li>
+        <li><span class="check">&#10003;</span> <b>Flash deals en tiempo real</b></li>
+        <li><span class="check">&#10003;</span> <b>Alertas de bajada de precio</b></li>
       </ul>
       <a href="https://t.me/OfertasFlashES_bot?start=vip" class="btn btn-vip" style="width:100%;justify-content:center">Suscribirme</a>
     </div>
@@ -198,8 +269,8 @@ h1{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:800;line-height:1.1;margin-bot
 </section>
 
 <!-- Referral -->
-<section class="referral">
-  <h2>🎁 Invita amigos, gana VIP</h2>
+<section class="referral" id="referral">
+  <h2>Invita amigos, gana VIP</h2>
   <p class="subtitle">Cada 3 amigos que invites = 1 semana de VIP GRATIS. Sin limites.</p>
   <div class="ref-steps">
     <div class="ref-step">
@@ -215,18 +286,18 @@ h1{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:800;line-height:1.1;margin-bot
       <p>3 amigos = 1 semana VIP gratis</p>
     </div>
   </div>
-  <a href="https://t.me/OfertasFlashES_bot?start=ref" class="btn btn-primary" style="margin-top:1rem">🎁 Conseguir mi enlace</a>
+  <a href="https://t.me/OfertasFlashES_bot?start=ref" class="btn btn-primary" style="margin-top:1rem">Conseguir mi enlace</a>
 </section>
 
 <!-- Footer -->
 <footer class="footer">
-  <p>OfertasFlash © 2026 — Ofertas seleccionadas por IA de Amazon.es</p>
-  <p style="margin-top:.5rem">Este sitio participa en el Programa de Afiliados de Amazon EU</p>
+  <p>OfertasFlash &copy; 2026 — Ofertas seleccionadas por IA de Amazon.es</p>
+  <p>Este sitio participa en el Programa de Afiliados de Amazon EU</p>
 </footer>
 
 <!-- Floating CTA -->
 <div class="float-cta">
-  <a href="https://t.me/OfertasFlashES">📢 Unirme al canal</a>
+  <a href="https://t.me/OfertasFlashES">Unirme al canal</a>
 </div>
 
 <script>
@@ -268,6 +339,15 @@ if (ref) {
     }
   });
 }
+
+// Smooth scroll for nav links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+});
 </script>
 </body>
 </html>
